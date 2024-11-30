@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Should you or not?</title>
+   <!-- Correct way to link to CSS using url_for -->
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  
+  <h1>Thinking of buying a Car?</h1>
+  <!-- Correct way to link to an image using url_for -->
+  <img src="{{ url_for('static', filename='images/img1.jpg') }}" class="img-fluid" alt="Responsive image" height="500">
+  <hr>
+  <section><b>This website helps you predict whether a person will purchase a car or not based on their salary and age </b></section>
+  <p> This would help you estimate based on your data whether you should buy a car or not</p>
+  
+  <section> 
+    <h3 id="heading1">Make a prediction</h3>
+    <form id="form1" action="/predict" method="POST">
+      <!-- Salary Input -->
+      <input id="id101" name="salary" type="number" placeholder="Salary" required>
+      <br><br>
+  
+      <!-- Age Input -->
+      <input id="id102" name="age" type="number" placeholder="Age" required>
+      <br><br>
+  
+      <!-- Gender Selection -->
+      <label id="id103" for="gender">Gender:</label>
+      <select id="gender" name="gender" required>
+          <option value="0">Female</option>
+          <option value="1">Male</option>
+      </select>
+      <br><br>
+  
+      <!-- Submit Button -->
+      <button id="id104" type="submit">Submit</button>
+  </form>
+  <h3 id="heading2">{{ prediction_text }}</h3>
+  </section>
+  <div class="myclass"></div>
+  <div id="box"></div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
